@@ -20,7 +20,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - aws lambda invoke --function-name reblie-web-read-env --invocation-type RequestResponse --region us-east-1 --payload "{\"application\":\"${ENV_TYPE}\", \"repoName\":\"reblie-api\" }" app_env.json
+      - aws lambda invoke --function-name reblie-web-read-env --invocation-type RequestResponse --region us-east-1 --payload "{\"application\":\"${ENV_TYPE}\", \"repoName\":\"saran-api\" }" app_env.json
       - cat app_env.json | jq -r '.body' >> .env
       - cat .env
       - docker build -t $REPOSITORY_URI:latest .
@@ -32,7 +32,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"reblie-api-$ENV_TYPE","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"saran-api-$ENV_TYPE","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - aws s3 cp imagedefinitions.json s3://saran-combined-pipeline-artifact-$ENV_TYPE/imagedefinitions.json  --metadata '{"codepipeline-artifact-revision-summary":"Initiated by Api portal ImageID - '$IMAGE_TAG'"}';
 artifacts:
     files: imagedefinitions.json
