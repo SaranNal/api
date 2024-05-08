@@ -8,8 +8,9 @@ COPY ./api-nginx.conf /etc/nginx/nginx.conf
 
 RUN npm install
 
-
 EXPOSE 80 5000
+
+RUN chmod +x entrypoint.sh
 
 #CMD [ "npm", "start" ]
 ENTRYPOINT ["./entrypoint.sh"]
