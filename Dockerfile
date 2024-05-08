@@ -12,4 +12,4 @@ RUN npm install
 EXPOSE 80 5000
 
 #CMD [ "npm", "start" ]
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
