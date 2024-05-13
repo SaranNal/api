@@ -1,7 +1,5 @@
-# FROM 170981889969.dkr.ecr.us-east-1.amazonaws.com/reblie-api-base:latest
-# FROM node-base2:latest
-FROM 729047448122.dkr.ecr.us-east-1.amazonaws.com/saran-node-base-image:latest
-# FROM 729047448122.dkr.ecr.us-east-1.amazonaws.com/base-test:latest
+FROM 729047448122.dkr.ecr.us-east-1.amazonaws.com/aran-app-base-image:latest
+
 WORKDIR /app
 COPY . .
 
