@@ -1,4 +1,4 @@
-FROM 729047448122.dkr.ecr.us-east-1.amazonaws.com/aran-app-base-image:latest
+FROM 729047448122.dkr.ecr.us-east-1.amazonaws.com/saran-app-base-image:latest
 
 WORKDIR /app
 COPY . .
